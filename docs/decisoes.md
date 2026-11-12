@@ -90,6 +90,29 @@ Formato: **D-número — título** · data · quem decidiu · decisão · motivo
   permite separar sorteios por turma, safra e tipo de evento sem que um interfira
   no outro.
 
+## D-012 — Repositório no GitHub
+- **Data:** 2026-11-12
+- **Decidido por:** Gino
+- **Decisão:** código hospedado em `github.com/adminRaccolto/simulagro`, ramo
+  principal `main`.
+
+## D-013 — Projeto Supabase
+- **Data:** 2026-11-12
+- **Decidido por:** Gino
+- **Decisão:** projeto Supabase "simulagro" criado por Gino.
+
+## D-014 — Forma de conexão com o banco
+- **Data:** 2026-11-12
+- **Decidido por:** Claude (aprovação pendente)
+- **Decisão:** duas URLs de conexão: "Transaction pooler" (porta 6543) para o app
+  e "Session pooler" (porta 5432) para criar/alterar tabelas (migrações via
+  drizzle-kit). Chave pública do tipo "Publishable" (`sb_publishable_…`).
+- **Motivo:** é a configuração recomendada pelo Supabase para apps na Vercel, onde
+  muitas instâncias curtas abrem conexões; os poolers também funcionam em redes
+  só IPv4.
+- **Segurança:** senhas ficam apenas no `.env.local` (fora do Git) e nas variáveis
+  de ambiente da Vercel. O modelo sem segredos é o `.env.example`.
+
 ---
 
 ## Pendências (a decidir)
